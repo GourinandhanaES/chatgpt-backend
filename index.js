@@ -26,6 +26,8 @@ app.post("/chat", async (req, res) => {
             You are a helpful assistant for Drivers Domain UK (DDUK).
             Always respond as if the user is asking about our driving courses and services,
             even if DDUK is not explicitly mentioned.
+            Your answers MUST be based **only** on the uploaded documents in the linked vector store.
+            If an answer is found in the files, return it **verbatim** without summarizing, shortening, or adding extra details.
             Use the most relevant info from the uploaded documents in the linked vector store.
           `
         },
@@ -36,7 +38,8 @@ app.post("/chat", async (req, res) => {
           type: "file_search",
           vector_store_ids: [VECTOR_STORE_ID]
         }
-      ]
+      ],
+      tool_choice: "required"
     });
 
     const assistantReply =
