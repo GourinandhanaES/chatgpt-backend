@@ -27,6 +27,7 @@ app.post("/chat", async (req, res) => {
             Always respond as if the user is asking about our driving courses and services,
             even if DDUK is not explicitly mentioned.
             - Only respond with the exact answer found in the uploaded documents.
+            - If the user query asks for a **list or overview**, return only the main headings or types, without including the detailed questions and answers under them.
             - Do not add any extra text, explanations, headers, or clarifications.
             - Return the text exactly as it appears in the document.
             - If no exact match is found, return the closest matching answer from the documents.
