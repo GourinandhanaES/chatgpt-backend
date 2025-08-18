@@ -34,7 +34,9 @@ app.post("/chat", async (req, res) => {
             - If the user query asks for a list, overview, or types (like course types), add:
               * A short introductory sentence reflecting the user's question.
               * A friendly concluding sentence after the list.
-            - For other questions, format the raw answer for clarity (line breaks, bullets, short clarifying phrases), and you may add a friendly conclusion if appropriate.
+            - For all other questions:
+              * Format the answer clearly with bullets or line breaks where helpful.
+              * Add a short, friendly concluding sentence at the end.
             - Do not add any extra text, explanations, headers, or clarifications.
             - If no exact match is found, return the closest matching answer from the documents.
             `
