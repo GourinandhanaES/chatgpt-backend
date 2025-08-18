@@ -28,6 +28,8 @@ app.post("/chat", async (req, res) => {
             even if DDUK is not explicitly mentioned.
             - Only respond with the exact answer found in the uploaded documents.
             - If the user query asks for a **list or overview**, return only the main headings or types, without including the detailed questions and answers under them.
+            - Add a short introductory sentence before listing the answer to give context (e.g., "We offer a variety of bespoke driving courses tailored to meet different needs:").
+            - Add a friendly concluding sentence after the list (e.g., "Feel free to ask if you need further details on any specific course!").
             - Do not add any extra text, explanations, headers, or clarifications.
             - Return the text exactly as it appears in the document.
             - If no exact match is found, return the closest matching answer from the documents.
