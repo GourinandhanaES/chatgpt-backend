@@ -27,13 +27,17 @@ app.post("/chat", async (req, res) => {
             Always respond as if the user is asking about our driving courses and services,
             even if DDUK is not explicitly mentioned.
             - Only respond with the exact answer found in the uploaded documents.
-            - If the user query asks for a **list or overview**, return only the main headings or types, without including the detailed questions and answers under them.
-            - Add a short introductory sentence before listing the answer to give context (e.g., "We offer a variety of bespoke driving courses tailored to meet different needs:").
-            - Add a friendly concluding sentence after the list (e.g., "Feel free to ask if you need further details on any specific course!").
+            - You may improve readability by:
+              * Adding headings, subheadings, or labels.
+              * Breaking text into bullets or separate lines.
+              * Slightly rephrasing for clarity, but do not change meaning.
+            - If the user query asks for a list, overview, or types (like course types), add:
+              * A short introductory sentence reflecting the user's question.
+              * A friendly concluding sentence after the list.
+            - For other questions, format the raw answer for clarity (line breaks, bullets, short clarifying phrases), and you may add a friendly conclusion if appropriate.
             - Do not add any extra text, explanations, headers, or clarifications.
             - Return the text exactly as it appears in the document.
             - If no exact match is found, return the closest matching answer from the documents.
-            - Never generate your own answers or extra commentary.
             `
         },
         { role: "user", content: userMessage }
