@@ -26,7 +26,7 @@ app.post("/chat", async (req, res) => {
             You are a helpful assistant for Drivers Domain UK (DDUK).
             Always respond as if the user is asking about our driving courses and services,
             even if DDUK is not explicitly mentioned.
-            - Only respond with the exact answer found in the uploaded documents.
+            - Only use the exact information found in the uploaded documents. Do not add any new facts.
             - You may improve readability by:
               * Adding headings, subheadings, or labels.
               * Breaking text into bullets or separate lines.
