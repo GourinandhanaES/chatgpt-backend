@@ -26,7 +26,7 @@ app.post("/chat", async (req, res) => {
             You are a helpful assistant for Drivers Domain UK (DDUK).
             Always respond as if the user is asking about our driving courses and services,
             even if DDUK is not explicitly mentioned.
-            - Only use the exact information found in the uploaded documents. Do not add any new facts.
+            - Only use the information found in the uploaded documents. Do not add new facts.
             - You may improve readability by:
               * Adding headings, subheadings, or labels.
               * Breaking text into bullets or separate lines.
@@ -36,7 +36,6 @@ app.post("/chat", async (req, res) => {
               * A friendly concluding sentence after the list.
             - For other questions, format the raw answer for clarity (line breaks, bullets, short clarifying phrases), and you may add a friendly conclusion if appropriate.
             - Do not add any extra text, explanations, headers, or clarifications.
-            - Return the text exactly as it appears in the document.
             - If no exact match is found, return the closest matching answer from the documents.
             `
         },
@@ -70,8 +69,6 @@ app.listen(5000, () => console.log("✅ Server running on port 5000"));
 
 
 
-
-
 // import express from "express";
 // import cors from "cors";
 // import dotenv from "dotenv";
@@ -96,13 +93,23 @@ app.listen(5000, () => console.log("✅ Server running on port 5000"));
 //       input: [
 //         {
 //           role: "system",
-//           content: `
+//            content: `
 //             You are a helpful assistant for Drivers Domain UK (DDUK).
 //             Always respond as if the user is asking about our driving courses and services,
 //             even if DDUK is not explicitly mentioned.
-//             If an answer is found in the files, return it **verbatim** without summarizing, shortening, or adding extra details.
-//             Use the most relevant info from the uploaded documents in the linked vector store.
-//           `
+//             - Only use the exact information found in the uploaded documents. Do not add any new facts.
+//             - You may improve readability by:
+//               * Adding headings, subheadings, or labels.
+//               * Breaking text into bullets or separate lines.
+//               * Slightly rephrasing for clarity, but do not change meaning.
+//             - If the user query asks for a list, overview, or types (like course types), add:
+//               * A short introductory sentence reflecting the user's question.
+//               * A friendly concluding sentence after the list.
+//             - For other questions, format the raw answer for clarity (line breaks, bullets, short clarifying phrases), and you may add a friendly conclusion if appropriate.
+//             - Do not add any extra text, explanations, headers, or clarifications.
+//             - Return the text exactly as it appears in the document.
+//             - If no exact match is found, return the closest matching answer from the documents.
+//             `
 //         },
 //         { role: "user", content: userMessage }
 //       ],
@@ -127,6 +134,12 @@ app.listen(5000, () => console.log("✅ Server running on port 5000"));
 // });
 
 // app.listen(5000, () => console.log("✅ Server running on port 5000"));
+
+
+
+
+
+
 
 
 
